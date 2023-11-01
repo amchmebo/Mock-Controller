@@ -9,6 +9,11 @@ namespace mock.depart.Services
         protected readonly ApplicationDbContext db;
         protected DbSet<T> set;
 
+        public BaseService()
+        {
+
+        }
+
         public BaseService(ApplicationDbContext context)
         {
             this.db = context;

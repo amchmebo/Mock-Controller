@@ -23,6 +23,7 @@ namespace mock.depart.Controllers
             _service = service;
         }
 
+        // TODO Pour facilité les tests il vaut mieux utiliser un ActionResult<Type>
         // DELETE: api/Cats/5
         [HttpDelete("{id}")]
         public IActionResult DeleteCat(int id)

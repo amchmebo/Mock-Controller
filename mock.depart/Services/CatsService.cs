@@ -6,6 +6,10 @@ namespace mock.depart.Services
 {
 	public class CatsService:BaseService<Cat>
 	{
+		public CatsService()
+		{
+		}
+
 		public CatsService(ApplicationDbContext context) : base(context)
 		{
 		}
