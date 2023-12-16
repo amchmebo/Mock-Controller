@@ -23,13 +23,16 @@ namespace mock.depart.Controllers
             _service = service;
         }
 
+        public virtual string UserId { get { return User.FindFirstValue(ClaimTypes.NameIdentifier)!; } }
+
+
         // TODO Pour facilité les tests il vaut mieux utiliser un ActionResult<Type>
         // DELETE: api/Cats/5
         [HttpDelete("{id}")]
-        public IActionResult DeleteCat(int id)
+        public ActionResult<Cat> DeleteCat(int id)
         {
             // TODO vous devrez surement en faire une propriété pour pouvoir la "mock"
-            string? userid = User.FindFirstValue(ClaimTypes.NameIdentifier)!;
+            string? userid = UserId;
 
             // TODO vous devrez aussi faire un mock avec le service
             Cat? cat = _service.Get(id);
