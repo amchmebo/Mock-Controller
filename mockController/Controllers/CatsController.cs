@@ -31,19 +31,23 @@ namespace mock.depart.Controllers
             Cat? cat = _service.Get(id);
             if (cat == null)
             {
+                //test cas chat non trouvé
                 return NotFound();
             }
             if (cat.CatOwner!.Id != userid)
             {
+                //test cas chat n'appartient pas à la personne qui tente de le supprimer
                 return BadRequest("Cat is not yours");
             }
             if (cat.CuteLevel == Cuteness.BarelyOk)
             {
+                //test suppression ok
                 cat = _service.Delete(id);
                 return Ok(cat);
             }
             else
             {
+                //test cas chat est trop mignon pour être supprimé
                 return BadRequest("Cat is too cute");
             }
         }
